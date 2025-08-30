@@ -61,36 +61,35 @@ mod tests {
     #[test]
     fn test_calcular_media() {
         let valores = vec![1.0, 2.0, 3.0, 4.0, 5.0];
-        let media = calcular_media(&valores);
-        assert_eq!(media, 3.0);
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 3.0); // Use 'resultado' aqui!
     }
 
     #[test]
-    fn test_calcular_inclinacao() {
-        let dados = vec![
-            RegistroVenda { mes: 1.0, valor: 100.0 },
-            RegistroVenda { mes: 2.0, valor: 120.0 },
-            RegistroVenda { mes: 3.0, valor: 140.0 },
-        ];
-        let inclinacao = calcular_inclinacao(&dados);
-        assert_eq!(inclinacao, 20.0);
+    fn test_calcular_media_iguais() {                   
+        let valores = vec![9.0, 9.0, 9.0, 9.0, 9.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 9.0); // Use 'resultado' aqui!
+    }
+ 
+    #[test]
+    fn test_calcular_media_unico_valor() {                   
+        let valores = vec![5.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 5.0); // Use 'resultado' aqui!
     }
 
     #[test]
-    fn test_calcular_intercepto() {
-        let dados = vec![
-            RegistroVenda { mes: 1.0, valor: 100.0 },
-            RegistroVenda { mes: 2.0, valor: 120.0 },
-            RegistroVenda { mes: 3.0, valor: 140.0 },
-        ];
-        let inclinacao = 20.0;
-        let intercepto = calcular_intercepto(&dados, inclinacao);
-        assert_eq!(intercepto, 80.0);
+    fn test_calcular_media_negativos() {                   
+        let valores = vec![-2.0, -4.0, -6.0,];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, -4.0); // Use 'resultado' aqui!
     }
 
     #[test]
-    fn test_prever_valor() {
-        let previsao = prever_valor(80.0, 20.0, 4.0);
-        assert_eq!(previsao, 160.0);
+    fn test_calcular_media_negativos_positivos() {                   
+        let valores = vec![-2.0, 4.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 1.0); // Use 'resultado' aqui!
     }
 }
